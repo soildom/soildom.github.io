@@ -90,7 +90,7 @@
 <meta property="og:description" content="最近在做算法分析与设计的课程设计，题目如下~~    给你一个1000×1000的𝑏𝑜𝑜𝑙矩阵，初始时所有元素为0 给你一个矩形的左上角和右下角坐标，将矩形内的元素置反，即0–&amp;gt;1，1–&amp;gt;0（包括边界） 给你一个点的坐标(𝑥,𝑦)，询问当前点的𝑏𝑜𝑜𝑙值 两种操作交替执行  原题点这里–&amp;gt;传送门">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://soildom.com/images/tree_array/tree_array.png">
-<meta property="og:updated_time" content="2018-11-11T14:14:07.492Z">
+<meta property="og:updated_time" content="2018-11-11T14:17:01.271Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="树状数组">
 <meta name="twitter:description" content="最近在做算法分析与设计的课程设计，题目如下~~    给你一个1000×1000的𝑏𝑜𝑜𝑙矩阵，初始时所有元素为0 给你一个矩形的左上角和右下角坐标，将矩形内的元素置反，即0–&amp;gt;1，1–&amp;gt;0（包括边界） 给你一个点的坐标(𝑥,𝑦)，询问当前点的𝑏𝑜𝑜𝑙值 两种操作交替执行  原题点这里–&amp;gt;传送门">
@@ -343,7 +343,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-11T22:14:07+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-11T22:17:01+08:00">
                 2018-11-11
               </time>
             
@@ -436,7 +436,7 @@
 </ol>
 <h1 id="暴力求解"><a href="#暴力求解" class="headerlink" title="暴力求解"></a>暴力求解</h1><p>首先，我们的第一思路肯定是创建一个1000×1000的二维𝑏𝑜𝑜𝑙数组，用来记录这个矩阵当前的𝑏𝑜𝑜𝑙值。<br>每次置反时，遍历整个矩形区域。<br>然而，它的时间复杂度是 $ O(M^2NT)=O(5\times10^{11}) $，所以这个方法肯定不行</p>
 <p>树状数组隆重登场~~</p>
-<h1 id="树状数组"><a href="#树状数组" class="headerlink" title="树状数组"></a>树状数组</h1><h2 id="lobit-函数"><a href="#lobit-函数" class="headerlink" title="$lobit$函数"></a>$lobit$函数</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>首先需要介绍一下$lobit$函数，它的作用是将一个十进制数转为二进制后，输出它的（从右往左数）第一个“1”所在位置代表的十进制数。<br>例如：<br>$$ 34_{(10)}=00100010_{(2)} $$<br>$$ lobit(34_{(10)})=00000010_{(2)}=2_{(10)} $$  </p>
+<h1 id="树状数组"><a href="#树状数组" class="headerlink" title="树状数组"></a>树状数组</h1><h2 id="lobit-函数"><a href="#lobit-函数" class="headerlink" title="$lobit$函数"></a>$lobit$函数</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>首先需要介绍一下$lobit$函数，它的作用是将一个十进制数转为二进制后，输出它的（从右往左数）第一个“1”所在位置代表的十进制数。<br>例如：<br>$$ 34_{(10)}=00100010_{(2)} $$$$ lobit(34_{(10)})=00000010_{(2)}=2_{(10)} $$  </p>
 <h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lowbit</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x&amp;(-x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="在树状数组中的作用"><a href="#在树状数组中的作用" class="headerlink" title="在树状数组中的作用"></a>在树状数组中的作用</h3><p>$\forall x\ge1$，$lobit(x)$表示$x$所能管到的区间长度，且$x$所能管到的区间长度为$[x-lobit(x)+1,x]$。<br>如上例中$34$能管到的区间长度为$2$，它能管到的区间是$[33,34]$。</p>
 <h2 id="树状数组的意义"><a href="#树状数组的意义" class="headerlink" title="树状数组的意义"></a>树状数组的意义</h2><h3 id="一维树状数组"><a href="#一维树状数组" class="headerlink" title="一维树状数组"></a>一维树状数组</h3><h4 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h4><p><img src="/images/tree_array/tree_array.png" alt="一维树状数组"></p>
@@ -468,7 +468,7 @@
   <p><span>本文标题:</span>树状数组</p>
   <p><span>文章作者:</span>soildom</p>
   <p><span>发布时间:</span>2018年10月31日 - 19:51:01</p>
-  <p><span>最后更新:</span>2018年11月11日 - 22:14:07</p>
+  <p><span>最后更新:</span>2018年11月11日 - 22:17:01</p>
   <p><span>原始链接:</span><a href="/2018/10/31/tree-array/" title="树状数组">http://soildom.com/2018/10/31/tree-array/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://soildom.com/2018/10/31/tree-array/" aria-label="复制成功！"></i></span>
   </p>
