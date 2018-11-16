@@ -90,7 +90,7 @@
 <meta property="og:description" content="最近在做算法分析与设计的课程设计，题目如下~~    给你一个1000×1000的𝑏𝑜𝑜𝑙矩阵，初始时所有元素为0 给你一个矩形的左上角和右下角坐标，将矩形内的元素置反，即0–&amp;gt;1，1–&amp;gt;0（包括边界） 给你一个点的坐标(𝑥,𝑦)，询问当前点的𝑏𝑜𝑜𝑙值 两种操作交替执行  原题点这里–&amp;gt;传送门">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://soildom.com/images/tree_array/tree_array.png">
-<meta property="og:updated_time" content="2018-11-11T14:17:01.271Z">
+<meta property="og:updated_time" content="2018-11-16T08:50:09.104Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="树状数组">
 <meta name="twitter:description" content="最近在做算法分析与设计的课程设计，题目如下~~    给你一个1000×1000的𝑏𝑜𝑜𝑙矩阵，初始时所有元素为0 给你一个矩形的左上角和右下角坐标，将矩形内的元素置反，即0–&amp;gt;1，1–&amp;gt;0（包括边界） 给你一个点的坐标(𝑥,𝑦)，询问当前点的𝑏𝑜𝑜𝑙值 两种操作交替执行  原题点这里–&amp;gt;传送门">
@@ -349,8 +349,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-11T22:17:01+08:00">
-                2018-11-11
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-16T16:50:09+08:00">
+                2018-11-16
               </time>
             
           </span>
@@ -388,7 +388,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  876
+                  882
                 </span>
               
 
@@ -453,7 +453,7 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=x; i&gt;<span class="number">0</span>; i-=lowbit(i))</span><br><span class="line">        ans+=t[i];</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="区间-更新"><a href="#区间-更新" class="headerlink" title="(区间)更新"></a>(区间)更新</h4><p>区间更新指的是对一段连续的区间$[c,d]$进行更新（都减去相同的值或都加上相同的值），如果调用$(d-c+1)$次单点更新函数，那时间复杂度将会是$O((d-c+1)\log n)$<br>这里，需要对原数组$a[n]$做个转换，引入差分数组$b[n]$$$b[1]=a[1]$$$$b[2]=a[2]-a[1]$$$$b[3]=a[3]-a[2]$$$$…$$$$b[n]=a[n]-a[n-1]$$若对$a[n]$中区间$[c,d]$进行更新（以这段区间同时$+k$为例），则$b[n]$中变动的只有$b[c]$和$b[d+1]$，其中$$b[c]+=k，b[d+1]-=k$$这样一来，我们只需调用$2$次单点更新函数就行了，还把时间复杂度降到了$O(2\log n)$</p>
 <h4 id="单点-询问"><a href="#单点-询问" class="headerlink" title="(单点)询问"></a>(单点)询问</h4><p>与上面区间更新对应，从而有了单点询问，定义$a[0]=0$，对差分数组$b[n]$，我们有$$query(x)=\sum_{i=1}^{x}b[i]=\sum_{i=1}^{x}(a[i]-a[i-1])=a[x]$$故只需对差分数组$b[n]$调用一次区间询问函数就能求得原数组$a[n]$中的$a[x]$</p>
-<h1 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续~~~"></a>未完待续~~~</h1>
+<h3 id="二维树状数组"><a href="#二维树状数组" class="headerlink" title="二维树状数组"></a>二维树状数组</h3><h1 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续~~~"></a>未完待续~~~</h1>
       
     </div>
     
@@ -474,7 +474,7 @@
   <p><span>本文标题:</span>树状数组</p>
   <p><span>文章作者:</span>soildom</p>
   <p><span>发布时间:</span>2018年10月31日 - 19:51:01</p>
-  <p><span>最后更新:</span>2018年11月11日 - 22:17:01</p>
+  <p><span>最后更新:</span>2018年11月16日 - 16:50:09</p>
   <p><span>原始链接:</span><a href="/2018/10/31/tree-array/" title="树状数组">http://soildom.com/2018/10/31/tree-array/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://soildom.com/2018/10/31/tree-array/" aria-label="复制成功！"></i></span>
   </p>
@@ -689,7 +689,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#暴力求解"><span class="nav-number">1.</span> <span class="nav-text">暴力求解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#树状数组"><span class="nav-number">2.</span> <span class="nav-text">树状数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#lobit-函数"><span class="nav-number">2.1.</span> <span class="nav-text">$lobit$函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">2.1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现"><span class="nav-number">2.1.2.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在树状数组中的作用"><span class="nav-number">2.1.3.</span> <span class="nav-text">在树状数组中的作用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#树状数组的意义"><span class="nav-number">2.2.</span> <span class="nav-text">树状数组的意义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一维树状数组"><span class="nav-number">2.2.1.</span> <span class="nav-text">一维树状数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义-1"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单点-更新"><span class="nav-number">2.2.1.2.</span> <span class="nav-text">(单点)更新</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#区间-询问"><span class="nav-number">2.2.1.3.</span> <span class="nav-text">(区间)询问</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#区间-更新"><span class="nav-number">2.2.1.4.</span> <span class="nav-text">(区间)更新</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单点-询问"><span class="nav-number">2.2.1.5.</span> <span class="nav-text">(单点)询问</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#未完待续"><span class="nav-number">3.</span> <span class="nav-text">未完待续~~~</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#暴力求解"><span class="nav-number">1.</span> <span class="nav-text">暴力求解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#树状数组"><span class="nav-number">2.</span> <span class="nav-text">树状数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#lobit-函数"><span class="nav-number">2.1.</span> <span class="nav-text">$lobit$函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">2.1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现"><span class="nav-number">2.1.2.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在树状数组中的作用"><span class="nav-number">2.1.3.</span> <span class="nav-text">在树状数组中的作用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#树状数组的意义"><span class="nav-number">2.2.</span> <span class="nav-text">树状数组的意义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一维树状数组"><span class="nav-number">2.2.1.</span> <span class="nav-text">一维树状数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义-1"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单点-更新"><span class="nav-number">2.2.1.2.</span> <span class="nav-text">(单点)更新</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#区间-询问"><span class="nav-number">2.2.1.3.</span> <span class="nav-text">(区间)询问</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#区间-更新"><span class="nav-number">2.2.1.4.</span> <span class="nav-text">(区间)更新</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单点-询问"><span class="nav-number">2.2.1.5.</span> <span class="nav-text">(单点)询问</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二维树状数组"><span class="nav-number">2.2.2.</span> <span class="nav-text">二维树状数组</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#未完待续"><span class="nav-number">3.</span> <span class="nav-text">未完待续~~~</span></a></li></ol></div>
             
 
           </div>
